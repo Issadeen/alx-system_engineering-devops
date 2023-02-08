@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.html" -exec cp -u {} ../
+find . -name '*.html' -printf '%T@\t%p\n' | sort -nr | while read -r date file; do cp --update "$file" ../; done
